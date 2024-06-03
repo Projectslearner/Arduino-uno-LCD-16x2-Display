@@ -1,13 +1,13 @@
-# Arduino Keypad Interface
+# Arduino LCD 16x2 Display
 
 ## Description
 
-This project demonstrates how to interface a 4x3 keypad with an Arduino to capture key presses and display them on the Serial Monitor. The keypad is connected to the Arduino, and each key press is detected and sent to the Serial Monitor.
+This project demonstrates how to interface a 16x2 LCD display with an Arduino to show messages and perform basic text operations such as scrolling and counting. The LCD is connected to the Arduino, and messages are displayed and manipulated on the screen.
 
 ## Components Needed
 
 1. **Arduino UNO**
-2. **4x3 Keypad**
+2. **16x2 LCD Display**
 3. **Jumper Wires**
 4. **Breadboard**
 
@@ -20,8 +20,13 @@ This project demonstrates how to interface a 4x3 keypad with an Arduino to captu
 ### Connecting the Components
 
 1. **Input Sensor to Controller:**
-   - Connect the keypad's row pins to Arduino digital pins 9, 8, 7, and 6.
-   - Connect the keypad's column pins to Arduino digital pins 5, 4, and 3.
+   - Connect the LCD pins to the Arduino as follows:
+     - RS to pin 12
+     - EN to pin 11
+     - D4 to pin 2
+     - D5 to pin 3
+     - D6 to pin 4
+     - D7 to pin 5
 
 ### Power the Arduino
 
@@ -36,28 +41,29 @@ This project demonstrates how to interface a 4x3 keypad with an Arduino to captu
    - Upload the program to the Arduino.
 
 2. **Monitor the Output:**
-   - Open the Serial Monitor in the Arduino IDE by selecting Tools > Serial Monitor.
-   - Set the baud rate to 9600 in the Serial Monitor.
-   - Press keys on the keypad and observe the corresponding key values being printed on the Serial Monitor.
+   - After uploading the program, the LCD will display "Circuit Digest!" followed by a scrolling message and a counting sequence from 0 to 9.
 
 ### Project Operation
 
 - **Initialization:**
-  - The Arduino initializes serial communication at 9600 baud.
+  - The Arduino initializes the LCD and sets it up with 16 columns and 2 rows.
+  - A message is displayed, and then it scrolls to the right.
 
-- **Reading Key Presses:**
-  - The keypad library detects key presses and returns the value of the pressed key.
-  - The detected key value is printed on the Serial Monitor.
+- **Counting:**
+  - The LCD displays a counting sequence from 0 to 9 with a one-second delay between each number.
+
+- **Scrolling Message:**
+  - The `scrollMessageRight` function scrolls the message "Circuit Digest!" to the right.
 
 ## Applications
 
-1. **User Input Interface:** Used in projects where numeric or character input is required.
-2. **Access Control Systems:** Incorporated into systems requiring a keypad for entering passwords or codes.
-3. **Menu Navigation:** Used in devices to navigate through menu options.
+1. **Information Display:** Used in projects where displaying information is essential.
+2. **User Interface:** Incorporated into devices to provide feedback or instructions to the user.
+3. **Educational Projects:** Ideal for learning about interfacing displays with microcontrollers.
 
 ## Observe the Data
 
-To read data from the keypad, you need to upload the sketch to the Arduino. After connecting the Arduino to your computer and uploading the program, you should see the key presses displayed on the Serial Monitor, confirming the keypad's functionality.
+To observe the LCD functionality, upload the sketch to the Arduino. The LCD will show the initial message, scroll it to the right, and then display a counting sequence.
 
 ## Support
 
